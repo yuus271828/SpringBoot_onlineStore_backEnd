@@ -1,0 +1,15 @@
+spring:
+  # spring-cloud 設定
+  cloud:
+    config:
+      enabled: false
+
+# spring-cloud AWS 設定
+aws:
+  secretsmanager:
+    prefix: prod/ohiji/javamail/
+    defaultContext: application
+    profileSeparator: _
+    failFast: true
+    name: <service_name>
+    enabled: true
