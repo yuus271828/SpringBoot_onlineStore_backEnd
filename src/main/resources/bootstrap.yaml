@@ -6,10 +6,12 @@ spring:
 
 # spring-cloud AWS 設定
 aws:
+  # AWS Secrets Manager 設定
   secretsmanager:
-    prefix: prod/ohiji/javamail/
-    defaultContext: application
+    prefix: secrets
+    defaultContext: ohiji
     profileSeparator: _
     failFast: true
-    name: <service_name>
+    name: ohiji
     enabled: true
+    region: ap-northeast-1

@@ -5,24 +5,25 @@ spring:
   data:
     rest:
       base-path: /api
-
+# JPA 設定
   jpa:
     hibernate:
       ddl-auto: update
 
+# DataBase 設定
   datasource:
     url: jdbc:mysql://localhost:3306/onlinestore_ohiji
-    username: $username
-    password: $password
+    username: ${DB_USERNAME}
+    password: ${DB_PW}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+# java-mail 設定
   mail:
     protocol: smtp
     host: smtp.gmail.com
     port: 465
-    username: $username
-    password: $password
-
+    username: ${JAVAMAIL_EMAIL}
+    password: ${JAVAMAIL_PW}
     properties:
       mail:
         smtp:
