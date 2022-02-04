@@ -1,5 +1,5 @@
+# spring-cloud 設定
 spring:
-  # spring-cloud 設定
   cloud:
     config:
       enabled: false
