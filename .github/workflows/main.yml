@@ -10,6 +10,10 @@ jobs:
       status: ${{ steps.test.conclusion }}
     runs-on: ubuntu-latest
     environment: AWS Credentials
+    permissions:
+      packages: write
+      contents: read
+      id-token: write
     steps:
       - # 授權 Github 取用 repository
         name: Checkout Latest Repo
