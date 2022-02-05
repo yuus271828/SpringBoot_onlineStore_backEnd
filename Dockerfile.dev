@@ -4,4 +4,4 @@ WORKDIR /workdir
 
 COPY . .
 
-CMD ["mvn", "package"]
+CMD ["mvn", "test"]
