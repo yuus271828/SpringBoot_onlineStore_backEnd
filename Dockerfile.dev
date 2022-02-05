@@ -1,0 +1,7 @@
+FROM maven:3.8.4-openjdk-11-slim AS test
+
+WORKDIR /workdir
+
+COPY . .
+
+CMD ["mvn", "package"]
