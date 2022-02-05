@@ -17,26 +17,13 @@ jobs:
       - # 授權 Github 取用 repository
         name: Checkout Latest Repo
         uses: actions/checkout@v2
-      #- # 設定 AWS Credentials
-      #  name: Configure AWS Credentials
-      #  uses: aws-actions/configure-aws-credentials@v1
-      #  with:
-      #    aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #    aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      #    aws-region: ${{ secrets.AWS_REGION }}
-      -
-        name: Read secrets from AWS Secrets Manager into environment variables
-        uses: abhilash1in/aws-secrets-manager-action@v1.1.0
+      - # 設定 AWS Credentials
+        name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
-          secrets: |
-            secrets/ohiji/*
-          parse-json: true
-      -
-        name: Check if env variable is set after fetching secrets
-        run: if [ -z ${JAVAMAIL_EMAIL+x} ]; then echo "JAVAMAIL_EMAIL is unset"; else echo "JAVAMAIL_EMAIL is set to '$JAVAMAIL_EMAIL'"; fi
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          role-session-name: AWS_secrets_manager
       - # 測試 Docker images
         id: test
         name: Build and testing Docker images
