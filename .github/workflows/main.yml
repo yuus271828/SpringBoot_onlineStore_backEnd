@@ -9,6 +9,7 @@ jobs:
     outputs:
       status: ${{ steps.test.conclusion }}
     runs-on: ubuntu-latest
+    environment: AWS Credentials
     steps:
       - # 授權 Github 取用 repository
         name: Checkout Latest Repo
