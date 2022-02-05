@@ -13,5 +13,5 @@ aws:
     profileSeparator: _
     failFast: true
     name: ohiji
-    enabled: true
+    enabled: false
     region: ap-northeast-1
