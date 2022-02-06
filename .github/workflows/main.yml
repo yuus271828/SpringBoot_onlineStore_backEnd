@@ -38,8 +38,8 @@ jobs:
 
   # Build and push to Docker Hub
   push_image_to_docker_hub:
-    needs: [ check ]
-    if: needs.check.outputs.status == 'success'
+    #needs: [ check ]
+    #if: needs.check.outputs.status == 'success'
     outputs:
       status: ${{ steps.push.conclusion }}
     runs-on: ubuntu-latest
