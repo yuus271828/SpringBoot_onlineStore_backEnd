@@ -22,7 +22,7 @@ jobs:
         with:
           aws-region: ${{ secrets.AWS_REGION }}
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-          role-session-name: AWS_secrets_manager
+          role-session-name: github_actions
       -
         name: Display Identity
         run: aws sts get-caller-identity
