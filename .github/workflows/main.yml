@@ -10,9 +10,8 @@ jobs:
       status: ${{ steps.test.conclusion }}
     runs-on: ubuntu-latest
     permissions:
-      packages: write
-      contents: read
       id-token: write
+      contents: read
     steps:
       - # 授權 Github 取用 repository
         name: Checkout Latest Repo
@@ -24,6 +23,9 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           role-session-name: AWS_secrets_manager
+      -
+        name: Display Identity
+        run: aws sts get-caller-identity
       - # 測試 Docker images
         id: test
         name: Build and testing Docker images
