@@ -75,12 +75,12 @@
 			<version>2.3.3</version>
 		</dependency>
 
-		<!-- AWS -->
+		<!-- AWS SDK(software development kit) -->
 		<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-sts -->
 		<dependency>
 			<groupId>com.amazonaws</groupId>
 			<artifactId>aws-java-sdk-sts</artifactId>
-			<version>1.12.153</version>
+			<version>1.12.156</version>
 		</dependency>
 
 		<!-- others -->
