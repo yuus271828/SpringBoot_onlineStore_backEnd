@@ -9,7 +9,7 @@ cloud:
     region:
       static: ap-northeast-1
     credentials:
-      profile-path: ".aws/credentials"
+      profile-path: .aws/credentials
       profile-name: ohiji
 
 # spring-cloud AWS 設定
