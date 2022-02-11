@@ -9,8 +9,8 @@ cloud:
     region:
       static: ap-northeast-1
     credentials:
-      profile-path: .aws/credentials
-      profile-name: ohiji
+      access-key: AKIA2JUR4PESVLEU7JW4
+      secret-key: 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
 
 # spring-cloud AWS 設定
 aws:

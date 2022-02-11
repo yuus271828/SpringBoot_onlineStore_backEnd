@@ -9,22 +9,22 @@ jobs:
     outputs:
       status: ${{ steps.test.conclusion }}
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
+    #permissions:
+    #  id-token: write
+    #  contents: read
     steps:
       - # 授權 Github 取用 repository
         name: Checkout Latest Repo
         uses: actions/checkout@v2
-      - # 設定 AWS Credentials
-        name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-region: ${{ secrets.AWS_REGION }}
-          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-      -
-        name: Display Identity
-        run: aws sts get-caller-identity
+      #- # 設定 AWS Credentials
+      #  name: Configure AWS Credentials
+      #  uses: aws-actions/configure-aws-credentials@v1
+      #  with:
+      #    aws-region: ${{ secrets.AWS_REGION }}
+      #    role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+      #-
+      #  name: Display Identity
+      #  run: aws sts get-caller-identity
       - # 測試 Docker images
         id: test
         name: Build and testing Docker images
