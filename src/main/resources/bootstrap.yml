@@ -13,7 +13,7 @@ cloud:
       access-key: AKIA2JUR4PESSGKBHOUC
       #profile-path: D:\Software_development\Project_onlineStore_ohiji\OnlineStore_ohiji_backEnd\.aws\credentials
       #profile-name: test
-      #instance-profile: false
+      instance-profile: true
       secret-key: W69KrNMVzYoqVrCZX9mPwrtVVGsjenBrMHywQ0ox
 
 # spring-cloud AWS 設定
