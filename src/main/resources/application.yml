@@ -1,15 +1,6 @@
 server:
   port: 8081
 
-# cloud-aws 設定
-cloud:
-  aws:
-    region:
-      static: ap-northeast-1
-    credentials:
-      access-key: AKIA2JUR4PESVLEU7JW4
-      secret-key: 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
-
 spring:
   data:
     rest:
@@ -21,7 +12,7 @@ spring:
 
 # DataBase 設定
   datasource:
-    url: jdbc:mysql://mysql-database-ohiiji.c2p3jxirx1bq.ap-northeast-1.rds.amazonaws.com/onlinestore_ohiji
+    url: jdbc:mysql://mysql-database-ohiiji1.c2p3jxirx1bq.ap-northeast-1.rds.amazonaws.com/onlinestore_ohiji
     username: ${DB_USERNAME}
     password: ${DB_PW}
     driver-class-name: com.mysql.cj.jdbc.Driver
