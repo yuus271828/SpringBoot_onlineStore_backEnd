@@ -1,6 +1,15 @@
 server:
   port: 8081
 
+# cloud-aws 設定
+cloud:
+  aws:
+    region:
+      static: ap-northeast-1
+    credentials:
+      access-key: AKIA2JUR4PESVLEU7JW4
+      secret-key: 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
+
 spring:
   data:
     rest:
