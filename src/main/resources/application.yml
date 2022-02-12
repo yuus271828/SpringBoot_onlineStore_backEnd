@@ -14,7 +14,7 @@ logging:
 cloud:
   aws:
     credentials:
-      use-default-aws-credentials-chain: true
+      use-default-aws-credentials-chain: false
       access-key: AKIA2JUR4PESSGKBHOUC
       #profile-path: D:\Software_development\Project_onlineStore_ohiji\OnlineStore_ohiji_backEnd\.aws\credentials
       #profile-name: test
