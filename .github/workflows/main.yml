@@ -9,36 +9,36 @@ jobs:
     outputs:
       status: ${{ steps.test.conclusion }}
     runs-on: ubuntu-latest
-    #permissions:
-    #  id-token: write
-    #  contents: read
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - # 授權 Github 取用 repository
         name: Checkout Latest Repo
         uses: actions/checkout@v2
-      #- # 設定 AWS Credentials
-      #  name: Configure AWS Credentials
-      #  uses: aws-actions/configure-aws-credentials@v1
-      #  with:
-      #    aws-region: ${{ secrets.AWS_REGION }}
-      #    role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-      #-
-      #  name: Display Identity
-      #  run: aws sts get-caller-identity
-      #- # 測試 Docker images
-      #  id: test
-      #  name: Build and testing Docker images
-      #  # 設定 -e CI=true 可以讓 test 只運行一次就退出
-      #  run: |
-      #    echo "Build docker images for testing..."
-      #    docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/springboot_onlinestore_backend-test -f ./Dockerfile.dev .
-      #    echo "Run react tests with built Docker images..."
-      #    docker run -e CI=true ${{ secrets.DOCKER_HUB_USERNAME }}/springboot_onlinestore_backend-test
+      - # 設定 AWS Credentials
+        name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+      -
+        name: Display Identity
+        run: aws sts get-caller-identity
+      - # 測試 Docker images
+        id: test
+        name: Build and testing Docker images
+        # 設定 -e CI=true 可以讓 test 只運行一次就退出
+        run: |
+          echo "Build docker images for testing..."
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/springboot_onlinestore_backend-test -f ./Dockerfile.dev .
+          echo "Run react tests with built Docker images..."
+          docker run -e CI=true ${{ secrets.DOCKER_HUB_USERNAME }}/springboot_onlinestore_backend-test
 
   # Build and push to Docker Hub
   push_image_to_docker_hub:
-    #needs: [ check ]
-    #if: needs.check.outputs.status == 'success'
+    needs: [ check ]
+    if: needs.check.outputs.status == 'success'
     outputs:
       status: ${{ steps.push.conclusion }}
     runs-on: ubuntu-latest
