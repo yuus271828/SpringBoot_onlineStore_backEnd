@@ -5,11 +5,11 @@ server:
 cloud:
   aws:
     credentials:
-      access-key: AKIA2JUR4PESSGKBHOUC
+      accessKey: AKIA2JUR4PESSGKBHOUC
       #profile-path: D:\Software_development\Project_onlineStore_ohiji\OnlineStore_ohiji_backEnd\.aws\credentials
       #profile-name: test
-      #instance-profile: true
-      secret-key: W69KrNMVzYoqVrCZX9mPwrtVVGsjenBrMHywQ0ox
+      instanceProfile: true
+      secretkey: W69KrNMVzYoqVrCZX9mPwrtVVGsjenBrMHywQ0ox
     region:
       static: ap-northeast-1
 
