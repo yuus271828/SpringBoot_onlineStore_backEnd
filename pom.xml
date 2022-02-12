@@ -68,17 +68,11 @@
 			<artifactId>spring-cloud-starter-aws</artifactId>
 			<version>2.3.3</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/io.awspring.cloud/spring-cloud-aws-messaging -->
+		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-aws-autoconfigure -->
 		<dependency>
-			<groupId>io.awspring.cloud</groupId>
-			<artifactId>spring-cloud-aws-messaging</artifactId>
-			<version>2.3.3</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/io.awspring.cloud/spring-cloud-aws-parameter-store-config -->
-		<dependency>
-			<groupId>io.awspring.cloud</groupId>
-			<artifactId>spring-cloud-aws-parameter-store-config</artifactId>
-			<version>2.3.3</version>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-aws-autoconfigure</artifactId>
+			<version>2.2.6.RELEASE</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/io.awspring.cloud/spring-cloud-starter-aws-secrets-manager-config -->
 		<dependency>
