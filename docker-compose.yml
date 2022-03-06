@@ -3,6 +3,6 @@ services:
   deployment-prod:
     image: yuus271828/springboot_onlinestore_backend
     ports:
-      - '8080:8081'
+      - '80:80'
 
 # docker-compose up --build

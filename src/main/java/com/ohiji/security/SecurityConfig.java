@@ -3,6 +3,7 @@ package com.ohiji.security;
 import com.ohiji.security.jwt.JWTAuthorizationFilter;
 import com.ohiji.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,6 +23,8 @@ import java.util.Collections;
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final AuthenticationService authenticationService;
+    @Value("${key.hostname.frontEnd}")
+    private String CLI_HOSTNAME;
 
     @Autowired
     public SecurityConfig(AuthenticationService authenticationService) {
@@ -72,7 +75,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000","http://reactjsonlinestorefrontend-env.eba-3pthpit7.ap-northeast-1.elasticbeanstalk.com"));
+        configuration.setAllowedOrigins(Arrays.asList(CLI_HOSTNAME, "http://localhost:3000"));
         configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT"));
         configuration.setAllowedHeaders(Collections.singletonList("*"));
         configuration.setAllowCredentials(true);

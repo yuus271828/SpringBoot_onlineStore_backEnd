@@ -44,7 +44,7 @@ public class EmailController {
 
         var role = account.get().getAuthority().getRoleCode();
         if (!role.equals("UNVERIFIED")) {
-            response.setSuccess(true);
+            response.setSuccess(false);
             response.setMessage("帳號己通過驗證");
             return ResponseEntity.ok(response);
         }

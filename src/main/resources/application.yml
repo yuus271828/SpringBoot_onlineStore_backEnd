@@ -1,45 +1,39 @@
-server:
-  port: 8081
+key:
+  hostname:
+    frontEnd: "http://reactjsonlinestorefrontend-env.eba-3pthpit7.ap-northeast-1.elasticbeanstalk.com"
+    backEnd: "http://springbootonlinestorebackend-env.eba-tfseztpn.ap-northeast-1.elasticbeanstalk.com"
 
-logging:
-  level:
-    com:
-      amazonaws:
-        util:
-          EC2MetadataUtils: error
-        internal:
-          InstanceMetadataServiceResourceFetcher: error
+server:
+  port: 80
 
 spring:
-  main:
-    allow-bean-definition-overriding: true
   data:
     rest:
       base-path: /api
-# spring-cloud 設定
+  # spring-cloud 設定
   cloud:
     config:
-      enabled: true
+      enabled: false
 
-# JPA 設定
+  # JPA 設定
   jpa:
     hibernate:
       ddl-auto: update
 
-# DataBase 設定
+  # DataBase 設定
   datasource:
-    url: jdbc:mysql://mysql-database-ohiiji1.c2p3jxirx1bq.ap-northeast-1.rds.amazonaws.com/onlinestore_ohiji
-    username: ${DB_USERNAME}
-    password: ${DB_PW}
+    url: database_url
+    username: username
+    password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-# java-mail 設定
+  # java-mail 設定
   mail:
     protocol: smtp
     host: smtp.gmail.com
     port: 465
-    username: ${JAVAMAIL_EMAIL}
-    password: ${JAVAMAIL_PW}
+    username: gmail_username
+    password: password
     properties:
       mail:
         smtp:

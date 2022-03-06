@@ -10,6 +10,7 @@ import com.ohiji.response.APIResponse;
 import com.ohiji.service.AccountService;
 import com.ohiji.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.MailSendException;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -41,6 +42,8 @@ import static com.ohiji.security.jwt.JWTConstants.EMAIL_VERIFIED_KEY;
 public class AccountController {
     private final AccountService accountService;
     private final EmailService emailService;
+    @Value("${key.hostname.frontEnd}")
+    private String CLI_HOSTNAME;
 
     @Autowired
     public AccountController(AccountService accountService, EmailService emailService) {
@@ -85,21 +88,21 @@ public class AccountController {
         } catch (SignatureVerificationException | JWTDecodeException e) {
             System.out.println("接收到來自 異常 JWToken 的 verify 請求 --- " + new Date());
 
-            redirectView.setUrl("http://localhost:3000/contents/message_page?text=verify_failed");
+            redirectView.setUrl(CLI_HOSTNAME+"/contents/message_page?text=verify_failed");
             return redirectView;
         } catch (TokenExpiredException e) {
             System.out.println("接收到來自 過期 JWToken 的 verify 請求 --- " + new Date());
 
-            redirectView.setUrl("http://localhost:3000/contents/message_page?text=verify_failed");
+            redirectView.setUrl(CLI_HOSTNAME+"/contents/message_page?text=verify_failed");
             return redirectView;
         }
 
         var account = accountService.verify(email);
         if (account.isEmpty()) {
-            redirectView.setUrl("http://localhost:3000/contents/message_page?text=verify_failed");
+            redirectView.setUrl(CLI_HOSTNAME+"/contents/message_page?text=verify_failed");
             return redirectView;
         }
-        redirectView.setUrl("http://localhost:3000/contents/message_page?text=verify_success");
+        redirectView.setUrl(CLI_HOSTNAME+"/contents/message_page?text=verify_success");
         return redirectView;
     }
 

@@ -15,6 +15,6 @@ LABEL \
 
 COPY --from=build /workdir/target/OnlineStore_ohiji_backEnd-0.0.1-SNAPSHOT.jar app.jar
 
-EXPOSE 8081
+EXPOSE 80
 
 CMD ["java", "-jar", "app.jar"]

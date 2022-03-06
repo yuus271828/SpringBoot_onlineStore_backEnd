@@ -22,6 +22,10 @@ public class EmailServiceImpl implements EmailService {
     @Value("${spring.mail.username}")
     private String mailUsername;
     private final JavaMailSender mailSender;
+    @Value("${key.hostname.backEnd}")
+    private String API_HOSTNAME;
+    @Value("${key.hostname.frontEnd}")
+    private String CLI_HOSTNAME;
 
     @Autowired
     public EmailServiceImpl(JavaMailSender mailSender) {
@@ -36,7 +40,7 @@ public class EmailServiceImpl implements EmailService {
                     .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                     .sign(Algorithm.HMAC384(EMAIL_VERIFIED_KEY.getBytes()));
             var subject = "茂洋烏魚子網站會員 信箱驗證";
-            var link = String.format("http://localhost:8081/api/acct/verify?token=%s", token);
+            var link = String.format(API_HOSTNAME+"/api/acct/verify?token=%s", token);
             var hyperlink = String.format("<a href='%s'>驗證信箱</a>", link);
             var text = String.format("<div>請按 %s 啟用帳戶，或複製鏈結至網址列：</div><br><br> %s ", hyperlink, link);
             var mail = createMimeMessage(mailUsername, email, subject, text);
@@ -54,7 +58,7 @@ public class EmailServiceImpl implements EmailService {
                     .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                     .sign(Algorithm.HMAC384(EMAIL_RESET_PASSWORD_KEY.getBytes()));
             var subject = "茂洋烏魚子網站會員 重設密碼";
-            var link = String.format("http://localhost:3000/contents/forgot_password?token=%s", token);
+            var link = String.format(CLI_HOSTNAME+"/contents/forgot_password?token=%s", token);
             var hyperlink = String.format("<a href='%s'>重設密碼</a>", link);
             var text = String.format("<div>請按 %s ，或複製鏈結至網址列：</div><br><br> %s ", hyperlink, link);
             var mail = createMimeMessage(mailUsername, email, subject, text);
