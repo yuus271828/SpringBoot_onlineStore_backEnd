@@ -27,11 +27,6 @@ import static com.ohiji.security.jwt.JWTConstants.TOKEN_PREFIX;
 // 檢查每個 request 的 JWT，決定是否給予授權(Authentication)與權限(Authority)
 @Component
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
-    /*
-        BasicAuthenticationFilter 負責以 HTTP 標頭攜帶的憑證來做基本驗證，
-        它可以用來處理 Spring 遠端協定，如 Hessian 及 Burlap，
-        或普通瀏覽器使用者端，如 Chrome, Firefox 及 IE 所作的驗證請求。
-    */
     private final UserDetailsService userDetailsService;
 
     public JWTAuthorizationFilter(AuthenticationManager authManager, UserDetailsService userDetailsService) {

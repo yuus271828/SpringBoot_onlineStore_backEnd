@@ -42,21 +42,4 @@ public class Account implements Serializable {
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "userinfo_id")
     private UserInfo userInfo;
-    // CascadeType.ALL 表示：無論儲存、合併、 更新或移除，一併對被參考物件作出對應動作。
-    // FetchType.EAGER 在查詢時立刻載入關聯的物件。
-    // FetchType.LAZY 只在用到時才載入關聯的物件。
-
-    /*
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinTable(name = "ACCOUNTS_AUTHORITY",
-            joinColumns = @JoinColumn(referencedColumnName = "account_id"),
-            inverseJoinColumns = @JoinColumn(referencedColumnName ="authority_id"))
-    @MapKeyJoinColumn(name = "userInfo_id")
-    private List<Authority> authorities;
-
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinTable(name = "ACCOUNTS_USERINFO", joinColumns = @JoinColumn(referencedColumnName = "id"),inverseJoinColumns = @JoinColumn(referencedColumnName ="id"))
-    private List<UserInfo> usersInfo;
-    */
-
 }

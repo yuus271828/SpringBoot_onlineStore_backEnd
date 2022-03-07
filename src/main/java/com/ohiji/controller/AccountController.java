@@ -28,13 +28,6 @@ import java.util.Date;
 import static com.ohiji.security.jwt.JWTConstants.EMAIL_RESET_PASSWORD_KEY;
 import static com.ohiji.security.jwt.JWTConstants.EMAIL_VERIFIED_KEY;
 
-/*  決定用 GET 或 POST 的理由
-    GET：來自超連結的 request、不需要用 @RequestBody 取得引數
-    POST：創建資料、需要用 @RequestBody 取得引數
-    PUT：更新資料、需要用 @RequestBody 取得引數
-*/
-
-
 // 帳號註冊、信箱驗證、重設密碼
 @RestController
 @RequestMapping("/api/acct")
@@ -75,7 +68,6 @@ public class AccountController {
         return ResponseEntity.ok(response);
     }
 
-    // 超連結
     @GetMapping("/verify")
     public RedirectView verify(@RequestParam String token) {
         var redirectView = new RedirectView();

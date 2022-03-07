@@ -43,7 +43,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .anyRequest().authenticated()
                 )
                 .addFilter(new JWTAuthorizationFilter(authenticationManager(), userDetailsService()))
-                // 無狀態的 session 政策，不使用 HTTPSession 驗證
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .httpBasic().and()
                 .cors().and()
