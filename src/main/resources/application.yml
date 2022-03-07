@@ -30,6 +30,7 @@ spring:
   # java-mail 設定
   mail:
     protocol: smtp
+    # 使用 gmail 的 smtp(簡單郵遞傳送協定)
     host: smtp.gmail.com
     port: 465
     username: gmail_username

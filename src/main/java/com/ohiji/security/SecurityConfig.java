@@ -20,6 +20,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import java.util.Arrays;
 import java.util.Collections;
 
+// 設定 Spring Security
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final AuthenticationService authenticationService;
@@ -58,10 +59,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(passwordEncoder());
     }
 
+    // 將 AuthenticationManager 設定為 @Bean，可以用 @Autowired 導入其它組件進行身份驗證。
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
-        // 將 AuthenticationManager 設定為 @Bean，可以用 @Autowired 導入其它組件進行身份驗證。
         return super.authenticationManagerBean();
     }
 
