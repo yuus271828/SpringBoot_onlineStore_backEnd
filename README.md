@@ -12,7 +12,8 @@
 
 ## Description
 
-烏魚子網站 API，提供會員註冊、信箱驗證、登入登出、編輯會員資料、重設密碼等服務。
+烏魚子網站的後端 RESTful API，提供會員註冊、信箱驗證、會員登入、編輯會員資料、重設密碼等功能。
+語言為 Java，框架為 SpringBoot，透過 GitHub Actions 以 Docker 容器部署到AWS上。
 
 ## How to use
 
