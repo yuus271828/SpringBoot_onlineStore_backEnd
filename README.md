@@ -13,8 +13,18 @@
 ## Description
 
 烏魚子網站的後端 RESTful API，提供會員註冊、信箱驗證、會員登入、編輯會員資料、重設密碼等功能。
+  
 語言為 Java，框架為 SpringBoot，透過 GitHub Actions 以 Docker 容器部署到AWS上。
 
+**Frame Diagram**
+<p align="center">
+  <img  src="src/main/resources/readme_img/frame_diagram.png" width="80%" alt="frame_diagram">
+<p>
+
+**Deployment Flowchart**
+<p align="center">
+  <img  src="src/main/resources/readme_img/deployment_flowchart.png" width="80%" alt="deployment_flowchart">
+<p>
 ## How to use
 
 **第一步：會員註冊、登入**
