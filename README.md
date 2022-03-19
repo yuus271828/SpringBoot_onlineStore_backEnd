@@ -25,6 +25,7 @@
 <p align="center">
   <img  src="src/main/resources/readme_img/deployment_flowchart.png" width="80%" alt="deployment_flowchart">
 <p>
+  
 ## How to use
 
 **第一步：會員註冊、登入**
